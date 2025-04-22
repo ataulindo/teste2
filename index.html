@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana à Milanesa - O Sabor da Tradição</title>
+    <!-- Importando Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Importando Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fffde7;
+            color: #333;
+        }
+
+        /* Estilização Geral */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ff9800;
+        }
+
+        p, a, button, input, textarea {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Cabeçalho */
+        header {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 248, 225, 0.9);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #333;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff9800;
+        }
+
+        /* Seção Sobre */
+        #sobre {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        #sobre h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #sobre p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Seção Cardápio */
+        #cardapio {
+            padding: 80px 20px;
+            background-color: #fffde7;
+            text-align: center;
+        }
+
+        #cardapio h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin: 15px 0;
+            font-size: 1.8rem;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Seção Curiosidades sobre Bananas */
+        #curiosidades {
+            padding: 80px 20px;
+            background-color: #ff9800;
+            color: white;
+            text-align: center;
+        }
+
+        #curiosidades h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .curiosidade-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .curiosidade-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .curiosidade-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .curiosidade-item p {
+            font-size: 1.1rem;
+        }
+
+        /* Seção Depoimentos */
+        #depoimentos {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #depoimentos h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-items {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .depoimento {
+            min-width: 100%;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #555;
+            padding: 20px;
+        }
+
+        .depoimento span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Seção Contato */
+        #contato {
+            padding: 80px 20px;
+            background-color: #fffde7;
+            text-align: center;
+        }
+
+        #contato h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact форм-message {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            padding: 30px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-item img {
+                height: 200px;
+            }
+
+            .curiosidade-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Banana à Milanesa</h1>
+        <p>Descubra o sabor único da banana frita empanada, feita com amor e tradição!</p>
+        <a href="#cardapio" class="cta-button">Explore Nosso Cardápio</a>
+    </header>
+
+    <!-- Seção Sobre -->
+    <section id="sobre">
+        <h2>Nossa História</h2>
+        <p>A Banana à Milanesa nasceu de uma receita de família, passada de geração em geração. Inspirados pela paixão por sabores autênticos, transformamos a humilde banana em uma experiência gastronômica inesquecível. Aqui, cada prato conta uma história – venha fazer parte da nossa!</p>
+    </section>
+
+    <!-- Seção Cardápio -->
+    <section id="cardapio">
+        <h2>Nosso Cardápio</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <!-- Imagem de banana à milanesa com mel -->
+                <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/5e9f9f8e7f8f8e8f8e9f9f8e7f8f8e9f.jpg" alt="Banana à Milanesa Clássica">
+                <h3>Banana à Milanesa Clássica</h3>
+                <p>Banana frita empanada, servida com mel e canela.</p>
+            </div>
+            <div class="menu-item">
+                <!-- Imagem de banana à milanesa com chocolate -->
+                <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/5e9f9f8e7f8f8e8f8e9f9f8e7f8f8e9f.jpg" alt="Banana à Milanesa com Chocolate">
+                <h3>Banana à Milanesa com Chocolate</h3>
+                <p>Banana empanada coberta com chocolate derretido e granulado.</p>
+            </div>
+            <div class="menu-item">
+                <!-- Placeholder para outra imagem (substitua por uma foto real) -->
+                <img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/5e9f9f8e7f8f8e8f8e9f9f8e7f8f8e9f.jpg" alt="Banana à Milanesa Salgada">
+                <h3>Banana à Milanesa Salgada</h3>
+                <p>Banana empanada com toque de sal, acompanhada de molho especial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Curiosidades sobre Bananas -->
+    <section id="curiosidades">
+        <h2>Curiosidades sobre a Banana</h2>
+        <div class="curiosidade-grid">
+            <div class="curiosidade-item">
+                <i class="fas fa-seedling"></i>
+                <p>A banana não é uma fruta, mas uma baga gigante! Ela cresce em um cacho chamado "penca".</p>
+            </div>
+            <div class="curiosidade-item">
+                <i class="fas fa-globe-americas"></i>
+                <p>O Brasil é um dos maiores produtores de banana do mundo, com mais de 7 milhões de toneladas por ano.</p>
+            </div>
+            <div class="curiosidade-item">
+                <i class="fas fa-heart"></i>
+                <p>Comer bananas pode melhorar o humor, graças ao triptofano, que ajuda na produção de serotonina.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Depoimentos -->
+    <section id="depoimentos">
+        <h2>O Que Nossos Clientes Dizem</h2>
+        <div class="carousel">
+            <div class="carousel-items" id="carousel-items">
+                <div class="depoimento">
+                    "A melhor banana à milanesa que já provei! O sabor é incrível e o ambiente super aconchegante!"<span>- Maria S.</span>
+                </div>
+                <div class="depoimento">
+                    "Adorei a variedade do cardápio. A banana com chocolate é simplesmente divina!"<span>- João P.</span>
+                </div>
+                <div class="depoimento">
+                    "Um lugar perfeito para um lanche diferente. Voltarei com certeza!"<span>- Ana L.</span>
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Rua das Bananas, 123 - Centro, Cidade</p>
+            <p><i class="fas fa-phone-alt"></i> (11) 98765-4321</p>
+            <p><i class="fas fa-envelope"></i> contato@bananaamilanesa.com</p>
+            <p><i class="fas fa-clock"></i> Seg-Sex 10h-22h | Sáb-Dom 12h-23h</p>
+        </div>
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="name" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu Email" required>
+            <textarea id="message" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+            <div id="form-message" class="form-message"></div>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Banana à Milanesa. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
